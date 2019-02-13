@@ -19,7 +19,11 @@ public class HomeActivity extends AppCompatActivity {
         String email= sharedPreferences.getString("Email",null);
         textView = findViewById(R.id.textview);
         logout = findViewById(R.id.logout);
-        textView.setText(email);
+        if(email!=null)
+        textView.setText("WELCOME "+email);
+        else
+            textView.setText("WELCOME " + getIntent().getExtras().getString("Email"));
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
     private void startHomeActivity() {
 
         Intent intent = new Intent(this,HomeActivity.class);
+        if(!checkBoxRememberMe.isChecked())
+        {
+            intent.putExtra("Email",mEmailView.getText().toString());
+        }
         startActivity(intent);
         finish();
     }
